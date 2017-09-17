@@ -8,10 +8,15 @@ window.onload = function() {
 
     function preload () {
         linkPreload(game);
+
+        game.load.image('snowTile', 'assets/sprites/SnowTile.png');
     }
 
     function create () {
         input = inputCreate(game);
+
+        snowTile = game.add.tileSprite(0,0,800,600,'snowTile');
+
         link = linkCreate(game);
     }
 

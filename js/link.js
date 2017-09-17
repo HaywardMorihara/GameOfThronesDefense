@@ -1,3 +1,5 @@
+var speed = 2;
+
 function linkPreload(game) {
 	game.load.spritesheet('link', 'assets/sprites/LinkSpritesheet.png',24,32);
 }
@@ -17,12 +19,16 @@ function linkUpdate(link,input) {
 	var linkAnimation;
     if(input.upKey.isDown && !input.downKey.isDown && !input.leftKey.isDown && !input.rightKey.isDown) {
         linkAnimation = 'walkUp';
+        link.y -= speed;
     } else if(!input.upKey.isDown && input.rightKey.isDown && !input.downKey.isDown && !input.leftKey.isDown) {
         linkAnimation = 'walkRight';
+        link.x += speed;
     } else if(!input.upKey.isDown && !input.rightKey.isDown && input.downKey.isDown && !input.leftKey.isDown) {
         linkAnimation = 'walkDown';
+        link.y += speed;
     } else if(!input.upKey.isDown && !input.rightKey.isDown && !input.downKey.isDown && input.leftKey.isDown) {
         linkAnimation = 'walkLeft';
+        link.x -= speed;
     }
 
     if(linkAnimation != null) {
