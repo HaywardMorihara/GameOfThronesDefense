@@ -6,7 +6,7 @@ window.onload = function() {
 
     var link;
 
-    var wights = [];
+    var wights;
 
     function preload () {
         game.load.image('snowTile', 'assets/sprites/SnowTile.png');
@@ -24,22 +24,25 @@ window.onload = function() {
         game.physics.startSystem(Phaser.Physics.ARCADE);
 
         link = linkCreate(game);
+
+        wights = game.add.group();
     }
 
     function update() {
         linkUpdate(link,input);
 
-        if(wights.length < 50) {
-            wights.push(wightCreate(game, Math.random() * 800, -32));
+        if(wights.length < 800) {
+            wights.add(wightCreate(game, Math.random() * 800, -32));
         }
 
-        for (i = 0; i < wights.length; i++) { 
-            var wight = wights[i];
-            if (!wight.exists) {
-                wights[i] = wightCreate(game, Math.random() * 800, 32);
-            }
+        //there is a forEachAlive that may come in handy...what does "alive" mean?
+        wights.forEach(function(wight) { 
             wightUpdate(wight);
-        }
+        });
+
+        //Can we get nicer bounding boxes?
+        game.physics.arcade.collide(link,wights);
+        game.physics.arcade.collide(wights);
     }
 
 };

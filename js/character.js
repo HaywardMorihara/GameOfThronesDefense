@@ -5,10 +5,7 @@ function characterPreload(game, spritesheetName, spritesheetPath, tileWidth, til
 function characterCreate(game, spritesheetName, x, y, speed, walkUpTiles, walkRightTiles, walkDownTiles, walkLeftTiles, animationFrameRate) {
     var character = game.add.sprite(x, y, spritesheetName);
 
-    game.physics.enable(character, Phaser.Physics.ARCADE);
-
-    character.body.collidWorldBounds = true;
-    character.body.bounce.setTo(1,1);
+    game.physics.arcade.enable(character);
 
     character.speed = speed;
 
@@ -24,7 +21,7 @@ function characterCreate(game, spritesheetName, x, y, speed, walkUpTiles, walkRi
 
 function characterUpdate(character,inputDirection) {
     var characterAnimation;
-    var character.body.velocity.setTo(0,0);
+    character.body.velocity.setTo(0,0);
 
     switch(inputDirection) {
         case 'UP':

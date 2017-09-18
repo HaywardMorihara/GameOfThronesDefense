@@ -1,4 +1,4 @@
-var wightSpeed = 1;
+var wightSpeed = 75;
 var wightAnimationFrameRate = 22;
 
 function wightPreload(game) {
