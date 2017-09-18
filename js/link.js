@@ -1,4 +1,4 @@
-var linkSpeed = 2;
+var linkSpeed = 50;
 var linkAnimationFrameRate = 45;
 
 function linkPreload(game) {

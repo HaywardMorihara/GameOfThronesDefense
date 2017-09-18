@@ -21,13 +21,15 @@ window.onload = function() {
 
         snowTile = game.add.tileSprite(0,0,800,600,'snowTile');
 
+        game.physics.startSystem(Phaser.Physics.ARCADE);
+
         link = linkCreate(game);
     }
 
     function update() {
         linkUpdate(link,input);
 
-        if(wights.length < 100) {
+        if(wights.length < 50) {
             wights.push(wightCreate(game, Math.random() * 800, -32));
         }
 

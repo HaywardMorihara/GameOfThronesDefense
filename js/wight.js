@@ -21,7 +21,7 @@ function wightCreate(game, x, y) {
 function wightUpdate(wight) {
     characterUpdate(wight, 'DOWN');
 
-    if (wight.y > 900) {
+    if (wight.y > 600) {
         wight.destroy();
     }
 }
